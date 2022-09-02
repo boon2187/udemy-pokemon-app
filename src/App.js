@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { getAllPokemon } from './utils/pokemon';
 import './App.css';
 
 function App() {
@@ -8,8 +9,10 @@ function App() {
   useEffect(() => {
     const fetchPokemonData = async () => {
       // 全てのポケモンデータを取得
-      let res = await getAllPlkemon();
+      let res = await getAllPokemon(initialURL);
+      console.log(res);
     };
+    fetchPokemonData();
   }, []);
 
 
