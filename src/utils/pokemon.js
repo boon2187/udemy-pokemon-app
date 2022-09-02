@@ -1,7 +1,5 @@
-export const getAllPlkemon = (url) => {
+export const getAllPokemon = (url) => {
     return new Promise((resolve, reject) => {
-        fetch(url)
-            .then((res) => re.json())
-            .then((data) => resolve(data));
+        fetch(url).then((res) => res.json()).then((data) => resolve(data));
     });
 };
