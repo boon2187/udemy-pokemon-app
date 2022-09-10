@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAllPokemon, getPokemon } from './utils/pokemon';
 import './App.css';
+import Card from './components/Card/Card';
 
 function App() {
   // ポケモンAPIのベースURL
