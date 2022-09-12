@@ -9,6 +9,10 @@ function App() {
   const initialURL = "https://pokeapi.co/api/v2/pokemon";
   const [loading, setLoading] = useState(true);
   const [pokemonData, setPokemonData] = useState([]);
+  // 次のポケモンデータのURL
+  const [nextURL, setNextURL] = useState("");
+  // 前のポケモンデータのURL
+  const [prevURL, setPrevURL] = useState("");
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -16,6 +20,7 @@ function App() {
       let res = await getAllPokemon(initialURL);
       // 各ポケモンの詳細なデータを取得する
       loadPokemon(res.results);
+      console.log(res);
       setLoading(false);
     };
     fetchPokemonData();
@@ -35,7 +40,10 @@ function App() {
 
   // console.log(pokemonData);
 
-  const handleNextPage = () => {};
+  const handleNextPage = async () => {
+    setLoading(true);
+    let data = await getAllPokemon
+  };
   const handlePrevPage = () => {};
  
   return (
