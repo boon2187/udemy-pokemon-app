@@ -12,7 +12,7 @@ function App() {
   // 次のポケモンデータのURL
   const [nextURL, setNextURL] = useState("");
   // 前のポケモンデータのURL
-  const [prevURL, setPrevURL] = useState("");
+  const [prevURL, setPrevURL] = useState(null);
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -46,10 +46,20 @@ function App() {
     let data = await getAllPokemon(nextURL);
     // console.log(data);
     await loadPokemon(data.results);
-    setLoading(false);
     setNextURL(data.next);
+    setPrevURL(data.previous);
+    setLoading(false);
   };
-  const handlePrevPage = () => {};
+  const handlePrevPage = async () => {
+    setLoading(true);
+    if (prevURL !== null) {
+      let data = await getAllPokemon(prevURL);
+      await loadPokemon(data.results);
+      setNextURL(data.next);
+      setPrevURL(data.previous);
+      setLoading(false);
+    }
+  };
  
   return (
     <>
