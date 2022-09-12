@@ -20,7 +20,8 @@ function App() {
       let res = await getAllPokemon(initialURL);
       // 各ポケモンの詳細なデータを取得する
       loadPokemon(res.results);
-      console.log(res);
+      // console.log(res.next);
+      setNextURL(res.next);
       setLoading(false);
     };
     fetchPokemonData();
@@ -42,7 +43,11 @@ function App() {
 
   const handleNextPage = async () => {
     setLoading(true);
-    let data = await getAllPokemon
+    let data = await getAllPokemon(nextURL);
+    // console.log(data);
+    await loadPokemon(data.results);
+    setLoading(false);
+    setNextURL(data.next);
   };
   const handlePrevPage = () => {};
  
