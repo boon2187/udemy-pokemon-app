@@ -1,3 +1,4 @@
+// すべてのポケモンデータを取得する関数
 export const getAllPokemon = (url) => {
     return new Promise((resolve, reject) => {
         fetch(url)
@@ -6,6 +7,8 @@ export const getAllPokemon = (url) => {
     });
 };
 
+// 取ってきたすべてのポケモンデータのひとつのポケモンデータを
+// 取ってきたURLからあるひとつのポケモンのデータを取得する
 export const getPokemon = (url) => {
     return new Promise((resolve, reject) => {
         fetch(url)
